@@ -1,32 +1,6 @@
-import 'styled-components';
+import "styled-components";
+import { MainTheme } from "./theme";
 
-declare module 'styled-components' {
-  export interface DefaultTheme {
-    colors: {
-      primary: string;
-      secondary: string;
-      gray: string;
-
-      info: string;
-      error: string;
-      warning: string;
-      success: string;
-      
-      background: string;
-      text: string;
-    };
-    fonts: {
-      primary: string;
-    };
-    spacing: {
-      xs: string;
-      sm: string;
-      md: string;
-      lg: string;
-      xl: string;
-    };
-    helpers: {
-      flexCenter: string;
-    };
-  }
+declare module "styled-components" {
+  export interface DefaultTheme extends MainTheme {}
 }

@@ -1,2 +1,3 @@
-import { theme } from "./theme";
-export const flexCenter = (props : typeof theme) => props.theme.helpers.flexCenter;
+import { DefaultTheme } from "styled-components/dist/types";
+export const flexCenter = (props: { theme: DefaultTheme }) =>
+  props.theme.helpers.flexCenter;
