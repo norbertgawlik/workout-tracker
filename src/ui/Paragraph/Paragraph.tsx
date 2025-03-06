@@ -1,12 +1,5 @@
 import { ReactNode } from "react";
-import styled from "styled-components";
-import { theme } from "../../theme/theme";
-
-const StyledParagraph = styled.p`
-  font-size: ${theme.fontSize.md};
-  line-height: ${theme.lineHeight.md};
-  font-weight: ${theme.fontWeight.md};
-`;
+import { StyledParagraph } from "./Paragraph.styled";
 
 type Props = {
   children: ReactNode;
