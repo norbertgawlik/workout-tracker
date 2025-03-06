@@ -1,18 +1,11 @@
 import { ReactNode } from "react";
-import styled from 'styled-components';
-
-const StyledParagraph = styled.p`
-    font-size: 16px;
-    line-height:1.4;
-    font-weight: 400;
-`;
+import { StyledParagraph } from "./Paragraph.styled";
 
 type Props = {
-    children: ReactNode;
+  children: ReactNode;
+  className?: string;
 };
 
-export const Paragraph = ({children} : Props) => {
-    return(
-        <StyledParagraph>{children}</StyledParagraph>
-    );
+export const Paragraph = ({ children, className }: Props) => {
+  return <StyledParagraph className={className}>{children}</StyledParagraph>;
 };
