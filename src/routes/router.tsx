@@ -1,6 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Layout } from "../components/Layout/Layout";
+import { Layout } from "../components/Layout/Layout/Layout";
 import { routesConfig } from "./routesConfig";
+import { ProtectedRoute } from "./ProtectedRoute";
+
+const isAuthenticated = true;
+const hasPermissions = false;
 
 const routes = [
   {
@@ -21,7 +25,14 @@ const routes = [
       },
       {
         path: routesConfig.dashboard.path,
-        element: routesConfig.dashboard.element,
+        element: (
+          <ProtectedRoute
+            isAuthenticated={isAuthenticated}
+            hasPermissions={hasPermissions}
+          >
+            {routesConfig.dashboard.element}
+          </ProtectedRoute>
+        ),
       },
       {
         path: routesConfig.forbidden.path,

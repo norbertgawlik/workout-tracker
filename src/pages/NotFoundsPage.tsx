@@ -5,7 +5,7 @@ export const NotFoundPage = () => {
   return (
     <>
       <Boxhead>404</Boxhead>
-      <Paragraph>Strona nie znaleziona</Paragraph>
+      <Paragraph>Page not found</Paragraph>
     </>
   );
 };

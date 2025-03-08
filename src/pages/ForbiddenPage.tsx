@@ -5,7 +5,7 @@ export const ForbiddenPage = () => {
   return (
     <>
       <Boxhead>403</Boxhead>
-      <Paragraph>Brak uprawnień</Paragraph>
+      <Paragraph>No permissions</Paragraph>
     </>
   );
 };
