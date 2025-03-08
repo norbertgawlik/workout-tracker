@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 import { StyledParagraph } from "./Paragraph.styled";
 
 type Props = {
