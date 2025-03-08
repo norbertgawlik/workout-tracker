@@ -1,9 +1,9 @@
-import { Header } from "../ui/Header";
+import { Boxhead } from "../ui/Bohead";
 
 export const DashboardPage = () => {
   return (
     <>
-      <Header>Dashboard</Header>
+      <Boxhead>Dashboard</Boxhead>
     </>
   );
 };

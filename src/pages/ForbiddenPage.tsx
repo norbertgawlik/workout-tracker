@@ -1,10 +1,10 @@
-import { Header } from "../ui/Header";
+import { Boxhead } from "../ui/Bohead";
 import { Paragraph } from "../ui/Paragraph";
 
 export const ForbiddenPage = () => {
   return (
     <>
-      <Header>403</Header>
+      <Boxhead>403</Boxhead>
       <Paragraph>Brak uprawnień</Paragraph>
     </>
   );

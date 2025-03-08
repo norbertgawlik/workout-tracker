@@ -1,9 +1,26 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { routesConfig } from "../../routes/routesConfig";
+import { theme } from "../../theme/theme";
 
-const StyledNavLink = styled(NavLink)`
-  color: red;
+const StyledNav = styled.nav`
+  padding: ${theme.spacing.lg} 0;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    li {
+      a {
+        display: block;
+        padding: ${theme.spacing.sm} ${theme.spacing.md};
+        ${theme.fontWeight.md};
+        &.active {
+          color: ${theme.colors.secondary};
+        }
+      }
+    }
+  }
 `;
 
 const menuItems = [
@@ -14,14 +31,14 @@ const menuItems = [
 
 export const Menu = () => {
   return (
-    <nav>
+    <StyledNav>
       <ul>
         {menuItems.map((e, k) => (
           <li key={k}>
-            <StyledNavLink to={e.path}>{e.label}</StyledNavLink>
+            <NavLink to={e.path}>{e.label}</NavLink>
           </li>
         ))}
       </ul>
-    </nav>
+    </StyledNav>
   );
 };

@@ -1,10 +1,10 @@
-import { Header } from "../ui/Header";
+import { Boxhead } from "../ui/Bohead";
 import { Paragraph } from "../ui/Paragraph";
 
 export const NotFoundPage = () => {
   return (
     <>
-      <Header>404</Header>
+      <Boxhead>404</Boxhead>
       <Paragraph>Strona nie znaleziona</Paragraph>
     </>
   );

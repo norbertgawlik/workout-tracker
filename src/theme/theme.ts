@@ -2,7 +2,7 @@ export const theme = {
   colors: {
     primary: "#40407a",
     secondary: "#706fd3",
-    gray: "#84817a",
+    gray: "#f1f0ee",
 
     info: "#34ace0",
     warning: "#ff793f",
@@ -49,7 +49,9 @@ export const theme = {
             justify-content:center;
             align-items:center;
         `,
+    transition: `transition: all 0.3s ease`,
   },
+  maxSize: "max-width: 1280px",
 } as const;
 
 export const MainTheme = typeof theme;

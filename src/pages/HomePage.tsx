@@ -1,9 +1,9 @@
-import { Header } from "../ui/Header";
+import { Boxhead } from "../ui/Bohead";
 
 export const HomePage = () => {
   return (
     <>
-      <Header>Home Page</Header>
+      <Boxhead>Home Page</Boxhead>
     </>
   );
 };
