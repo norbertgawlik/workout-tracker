@@ -1,4 +1,4 @@
-import { Boxhead } from "../ui/Bohead";
+import { Boxhead } from "../../components/ui/Bohead";
 
 export const LoginPage = () => {
   return (

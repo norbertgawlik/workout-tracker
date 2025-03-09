@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { theme } from "../../theme/theme";
+import { theme } from "../../../theme";
 
 export const StyledBoxhead = styled.h3`
   ${theme.fontSize.xl};

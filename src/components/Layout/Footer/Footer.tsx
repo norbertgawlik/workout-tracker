@@ -1,4 +1,4 @@
-import { Container } from "../Container/Container";
+import { Container } from "../Container";
 import { StyledFooter } from "./Footer.styled";
 
 export const Footer = () => {
