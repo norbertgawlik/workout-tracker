@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { routesConfig } from "./routesConfig";
 import { ProtectedRoute } from "./ProtectedRoute";
-import { Layout } from "../components/Layout/Layout";
+import { Layout } from "../components/layouts/Layout";
 
 const isAuthenticated = true;
 const hasPermissions = false;
