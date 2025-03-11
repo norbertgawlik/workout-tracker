@@ -49,7 +49,7 @@ export const theme = {
             justify-content:center;
             align-items:center;
         `,
-    transition: `transition: all 0.3s ease`,
+    transition: "transition: all 0.3s ease",
   },
   maxSize: "max-width: 1280px",
 } as const;

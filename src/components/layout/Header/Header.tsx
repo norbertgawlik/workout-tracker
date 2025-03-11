@@ -1,5 +1,5 @@
 import { Menu } from "../Menu";
-import { Container } from "../Container/";
+import { Container } from "../Container";
 import { StyledHeader } from "./Header.styled";
 
 export const Header = () => {

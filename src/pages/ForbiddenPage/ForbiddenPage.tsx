@@ -1,5 +1,5 @@
-import { Boxhead } from "../ui/Bohead";
-import { Paragraph } from "../ui/Paragraph";
+import { Boxhead } from "@ui/Boxhead";
+import { Paragraph } from "@ui/Paragraph";
 
 export const ForbiddenPage = () => {
   return (

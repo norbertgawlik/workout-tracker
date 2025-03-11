@@ -1,4 +1,4 @@
-import { Boxhead } from "../ui/Bohead";
+import { Boxhead } from "@ui/Boxhead";
 
 export const DashboardPage = () => {
   return (
