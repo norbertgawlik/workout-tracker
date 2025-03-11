@@ -8,7 +8,7 @@ type Props = {
   children: ReactNode;
 };
 
-export const setRedirect = (to: string) => {
+export const redirectTo = (to: string) => {
   return <Navigate to={to} replace />;
 };
 
@@ -18,10 +18,10 @@ export const ProtectedRoute = ({
   children,
 }: Props) => {
   if (!isAuthenticated) {
-    return setRedirect(routesConfig.login.path);
+    return redirectTo(routesConfig.login.path);
   }
   if (!hasPermissions) {
-    return setRedirect(routesConfig.forbidden.path);
+    return redirectTo(routesConfig.forbidden.path);
   }
   return children;
 };

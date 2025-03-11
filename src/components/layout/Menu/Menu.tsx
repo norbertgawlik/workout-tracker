@@ -15,9 +15,9 @@ export const Menu = () => {
   return (
     <StyledNav>
       <StyledList>
-        {menuItems.map((e) => (
-          <StyledItem key={e.path}>
-            <StyledNavLink to={e.path}>{e.label}</StyledNavLink>
+        {menuItems.map((item) => (
+          <StyledItem key={item.path}>
+            <StyledNavLink to={item.path}>{item.label}</StyledNavLink>
           </StyledItem>
         ))}
       </StyledList>
