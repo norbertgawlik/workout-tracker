@@ -2,9 +2,21 @@ import { createBrowserRouter } from "react-router-dom";
 import { routesConfig } from "./routesConfig";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { Layout } from "../components/layout/Layout";
+import { useAuth } from "../contexts/AuthContext";
+import { ReactNode } from "react";
 
-const isAuthenticated = true;
-const hasPermissions = false;
+const ProtectedWrapper = ({ children }: { children: ReactNode }) => {
+  const { isAuthenticated, hasPermissions } = useAuth();
+
+  return (
+    <ProtectedRoute
+      isAuthenticated={isAuthenticated}
+      hasPermissions={hasPermissions}
+    >
+      {children}
+    </ProtectedRoute>
+  );
+};
 
 const routes = [
   {
@@ -26,12 +38,7 @@ const routes = [
       {
         path: routesConfig.dashboard.path,
         element: (
-          <ProtectedRoute
-            isAuthenticated={isAuthenticated}
-            hasPermissions={hasPermissions}
-          >
-            {routesConfig.dashboard.element}
-          </ProtectedRoute>
+          <ProtectedWrapper>{routesConfig.dashboard.element}</ProtectedWrapper>
         ),
       },
       {

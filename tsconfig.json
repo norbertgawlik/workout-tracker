@@ -5,9 +5,13 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "paths": {
-      "@ui/*": ["components/ui/*"]
+      "@ui/*": ["components/ui/*"],
+      "@routes/*": ["routes/*"],
+      "@contexts/*": ["contexts/*"],
+      "@mytypes/*": ["types/*"],
+      "@theme": ["theme"]
     }
   }
 }
