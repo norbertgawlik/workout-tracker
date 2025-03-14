@@ -6,6 +6,10 @@ export default defineConfig({
   resolve: {
     alias: {
       "@ui": "/src/components/ui",
+      "@routes": "/src/routes",
+      "@contexts": "/src/contexts",
+      "@mytypes": "/src/types",
+      "@theme": "/src/theme/theme.ts",
     },
   },
 });
