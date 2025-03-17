@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const StyledButton = styled("button")`
   ${theme.fontSize.lg};
   padding: ${theme.spacing.sm} ${theme.spacing.xl};
-  color: white;
+  color: ${theme.colors.light};
   background: ${theme.colors.primary};
   ${theme.helpers.transition};
   margin: ${theme.spacing.xs};

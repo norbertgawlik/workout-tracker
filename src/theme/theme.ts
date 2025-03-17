@@ -10,6 +10,7 @@ export const theme = {
     success: "#33d9b2",
     background: "#fff",
     text: "#333333",
+    light: "#FFFFFF",
   },
   fonts: {
     primary: '"Robot", sans-serif',
