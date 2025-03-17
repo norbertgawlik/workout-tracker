@@ -6,17 +6,17 @@ import { router } from "./routes/router";
 import { AuthProvider } from "./contexts/AuthContext";
 
 import "./App.css";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
-    <>
-      <AuthProvider>
-        <ThemeProvider theme={theme}>
-          <GlobalStyles />
-          <RouterProvider router={router} />
-        </ThemeProvider>
-      </AuthProvider>
-    </>
+    <AuthProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <RouterProvider router={router} />
+        <ToastContainer />
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
 

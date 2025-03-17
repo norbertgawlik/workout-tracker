@@ -1,11 +1,13 @@
-import { Boxhead } from "@ui/Boxhead";
+import { PageContainer } from "@components/layout/Page";
+import { routesConfig } from "@routes/routesConfig";
 import { Paragraph } from "@ui/Paragraph";
 
 export const ForbiddenPage = () => {
   return (
     <>
-      <Boxhead>403</Boxhead>
-      <Paragraph>No permissions</Paragraph>
+      <PageContainer header={routesConfig.forbidden.label}>
+        <Paragraph>No permissions</Paragraph>
+      </PageContainer>
     </>
   );
 };

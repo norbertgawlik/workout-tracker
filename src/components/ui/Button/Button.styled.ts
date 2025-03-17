@@ -6,12 +6,8 @@ export const StyledButton = styled("button")`
   padding: ${theme.spacing.sm} ${theme.spacing.xl};
   color: white;
   background: ${theme.colors.primary};
-  outline: none;
-  border: none;
-  margin: ${theme.spacing.xs};
-  cursor: pointer;
   ${theme.helpers.transition};
-  display: inline-block;
+  margin: ${theme.spacing.xs};
   &:hover {
     opacity: 0.7;
   }

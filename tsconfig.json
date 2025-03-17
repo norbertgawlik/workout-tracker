@@ -11,6 +11,7 @@
       "@routes/*": ["routes/*"],
       "@contexts/*": ["contexts/*"],
       "@mytypes/*": ["types/*"],
+      "@components/*": ["components/*"],
       "@theme": ["theme"]
     }
   }

@@ -9,6 +9,7 @@ export default defineConfig({
       "@routes": "/src/routes",
       "@contexts": "/src/contexts",
       "@mytypes": "/src/types",
+      "@components": "/src/components",
       "@theme": "/src/theme/theme.ts",
     },
   },

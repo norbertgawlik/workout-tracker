@@ -1,22 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import { routesConfig } from "./routesConfig";
-import { ProtectedRoute } from "./ProtectedRoute";
+import { ProtectedWrapper } from "./ProtectedRoute";
 import { Layout } from "../components/layout/Layout";
-import { useAuth } from "../contexts/AuthContext";
-import { ReactNode } from "react";
-
-const ProtectedWrapper = ({ children }: { children: ReactNode }) => {
-  const { isAuthenticated, hasPermissions } = useAuth();
-
-  return (
-    <ProtectedRoute
-      isAuthenticated={isAuthenticated}
-      hasPermissions={hasPermissions}
-    >
-      {children}
-    </ProtectedRoute>
-  );
-};
+import { Roles } from "@mytypes/user";
 
 const routes = [
   {
@@ -33,12 +19,18 @@ const routes = [
       },
       {
         path: routesConfig.login.path,
-        element: routesConfig.login.element,
+        element: (
+          <ProtectedWrapper redirect={routesConfig.dashboard.path}>
+            {routesConfig.login.element}
+          </ProtectedWrapper>
+        ),
       },
       {
         path: routesConfig.dashboard.path,
         element: (
-          <ProtectedWrapper>{routesConfig.dashboard.element}</ProtectedWrapper>
+          <ProtectedWrapper requiredLogin={true} requiredRole={Roles.USER}>
+            {routesConfig.dashboard.element}
+          </ProtectedWrapper>
         ),
       },
       {

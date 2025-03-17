@@ -1,42 +1,37 @@
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { Boxhead } from "@ui/Boxhead";
 import { Button } from "@ui/Button";
 import { useAuth } from "@contexts/AuthContext";
-import { routesConfig } from "@routes/routesConfig";
 import { Roles } from "@mytypes/user";
+import { toast } from "react-toastify";
+import { CustomToast } from "@ui/Toast";
+import { PageContainer } from "@components/layout/Page";
+import { routesConfig } from "@routes/routesConfig";
 
 const testUserData = {
   id: "test_id",
   name: "test_name",
   email: "test@gmail.com",
-  role: Roles.AUTH,
+  role: Roles.USER,
 };
 
 export const LoginPage = () => {
-  const { user, login } = useAuth();
-  const navigate = useNavigate();
-
+  const { login } = useAuth();
   const handleLogin = () => {
-    try {
-      login(testUserData);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+    login(testUserData);
 
-  useEffect(() => {
-    if (user && user.role === Roles.AUTH) {
-      navigate(routesConfig.dashboard.path);
-    } else if (user) {
-      navigate(routesConfig.forbidden.path);
-    }
-  }, [user]);
+    toast.success(CustomToast, {
+      data: {
+        title: "Logged in!",
+        content: "",
+      },
+      theme: "colored",
+    });
+  };
 
   return (
     <>
-      <Boxhead>Login page</Boxhead>
-      <Button onClick={handleLogin}>Login</Button>
+      <PageContainer header={routesConfig.login.label}>
+        <Button onClick={handleLogin}>Login</Button>
+      </PageContainer>
     </>
   );
 };
