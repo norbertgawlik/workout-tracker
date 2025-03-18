@@ -1,29 +1,23 @@
 import { Button } from "@ui/Button";
 import { useAuth } from "@contexts/AuthContext";
-import { CustomToast } from "@ui/Toast";
-import { toast } from "react-toastify";
 import { PageContainer } from "@components/layout/Page";
 import { routesConfig } from "@routes/routesConfig";
+import { useToast } from "@contexts/ToastContext";
 
 export const DashboardPage = () => {
   const { logout } = useAuth();
+  const { showToast } = useToast();
 
   const handleLogout = () => {
     logout();
-
-    toast.info(CustomToast, {
-      data: {
-        title: "Logged out",
-        content: "",
-      },
-      theme: "colored",
+    showToast({
+      title: "Logged out",
     });
   };
+
   return (
-    <>
-      <PageContainer header={routesConfig.dashboard.label}>
-        <Button onClick={handleLogout}>Logout</Button>
-      </PageContainer>
-    </>
+    <PageContainer header={routesConfig.dashboard.label}>
+      <Button onClick={handleLogout}>Logout</Button>
+    </PageContainer>
   );
 };

@@ -1,10 +1,9 @@
-import { Button } from "@ui/Button";
-import { useAuth } from "@contexts/AuthContext";
-import { Roles } from "@mytypes/user";
-import { toast } from "react-toastify";
-import { CustomToast } from "@ui/Toast";
 import { PageContainer } from "@components/layout/Page";
+import { useAuth } from "@contexts/AuthContext";
+import { useToast } from "@contexts/ToastContext";
+import { Roles } from "@mytypes/user";
 import { routesConfig } from "@routes/routesConfig";
+import { Button } from "@ui/Button";
 
 const testUserData = {
   id: "test_id",
@@ -15,23 +14,19 @@ const testUserData = {
 
 export const LoginPage = () => {
   const { login } = useAuth();
+  const { showToast } = useToast();
+
   const handleLogin = () => {
     login(testUserData);
-
-    toast.success(CustomToast, {
-      data: {
-        title: "Logged in!",
-        content: "",
-      },
-      theme: "colored",
+    showToast({
+      title: "Logged in",
+      options: { type: "success" },
     });
   };
 
   return (
-    <>
-      <PageContainer header={routesConfig.login.label}>
-        <Button onClick={handleLogin}>Login</Button>
-      </PageContainer>
-    </>
+    <PageContainer header={routesConfig.login.label}>
+      <Button onClick={handleLogin}>Login</Button>
+    </PageContainer>
   );
 };

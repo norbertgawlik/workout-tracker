@@ -4,10 +4,8 @@ import { Paragraph } from "@ui/Paragraph";
 
 export const ForbiddenPage = () => {
   return (
-    <>
-      <PageContainer header={routesConfig.forbidden.label}>
-        <Paragraph>No permissions</Paragraph>
-      </PageContainer>
-    </>
+    <PageContainer header={routesConfig.forbidden.label}>
+      <Paragraph>No permissions</Paragraph>
+    </PageContainer>
   );
 };

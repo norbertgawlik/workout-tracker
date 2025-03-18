@@ -1,20 +1,15 @@
-import { ToastContentProps } from "react-toastify";
-import {
-  StyledToastContent,
-  StyledToastHeader,
-  StyledToastWrapper,
-} from "./Toast.styled";
+import * as S from "./Toast.styled";
 
-type CustomToastProps = ToastContentProps<{
+type Props = {
   title: string;
   content: string;
-}>;
+};
 
-export function CustomToast({ data }: CustomToastProps) {
+export function CustomToast({ title, content }: Props) {
   return (
-    <StyledToastWrapper>
-      <StyledToastHeader>{data.title}</StyledToastHeader>
-      <StyledToastContent>{data.content}</StyledToastContent>
-    </StyledToastWrapper>
+    <S.StyledToastWrapper>
+      <S.StyledToastHeader>{title}</S.StyledToastHeader>
+      <S.StyledToastContent>{content}</S.StyledToastContent>
+    </S.StyledToastWrapper>
   );
 }

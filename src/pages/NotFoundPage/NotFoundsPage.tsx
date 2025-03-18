@@ -4,10 +4,8 @@ import { Paragraph } from "@ui/Paragraph";
 
 export const NotFoundPage = () => {
   return (
-    <>
-      <PageContainer header={routesConfig.notfound.label}>
-        <Paragraph>Page not found</Paragraph>
-      </PageContainer>
-    </>
+    <PageContainer header={routesConfig.notfound.label}>
+      <Paragraph>Page not found</Paragraph>
+    </PageContainer>
   );
 };
