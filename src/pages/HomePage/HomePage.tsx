@@ -1,9 +1,10 @@
-import { Boxhead } from "@ui/Boxhead";
+import { routesConfig } from "@routes/routesConfig";
+import { PageContainer } from "@components/layout/Page";
 
 export const HomePage = () => {
   return (
-    <>
-      <Boxhead>Home Page</Boxhead>
-    </>
+    <PageContainer header={routesConfig.home.label}>
+      <div>Lorem ipsum</div>
+    </PageContainer>
   );
 };

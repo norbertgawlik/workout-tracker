@@ -25,7 +25,7 @@ export const routesConfig = {
   dashboard: {
     path: "/dashboard",
     element: <DashboardPage />,
-    label: "Dasboard",
+    label: "Dashboard",
   },
   forbidden: {
     path: "/forbidden",

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { theme } from "../../../theme";
 import { NavLink } from "react-router-dom";
+import { theme } from "@theme";
 export const StyledNav = styled.nav`
   padding: ${theme.spacing.lg} 0;
 `;
