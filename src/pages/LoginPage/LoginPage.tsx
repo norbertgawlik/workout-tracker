@@ -1,42 +1,32 @@
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { Boxhead } from "@ui/Boxhead";
-import { Button } from "@ui/Button";
+import { PageContainer } from "@components/layout/Page";
 import { useAuth } from "@contexts/AuthContext";
-import { routesConfig } from "@routes/routesConfig";
+import { useToast } from "@contexts/ToastContext";
 import { Roles } from "@mytypes/user";
+import { routesConfig } from "@routes/routesConfig";
+import { Button } from "@ui/Button";
 
 const testUserData = {
   id: "test_id",
   name: "test_name",
   email: "test@gmail.com",
-  role: Roles.AUTH,
+  role: Roles.USER,
 };
 
 export const LoginPage = () => {
-  const { user, login } = useAuth();
-  const navigate = useNavigate();
+  const { login } = useAuth();
+  const { showToast } = useToast();
 
   const handleLogin = () => {
-    try {
-      login(testUserData);
-    } catch (err) {
-      console.log(err);
-    }
+    login(testUserData);
+    showToast({
+      title: "Logged in",
+      options: { type: "success" },
+    });
   };
 
-  useEffect(() => {
-    if (user && user.role === Roles.AUTH) {
-      navigate(routesConfig.dashboard.path);
-    } else if (user) {
-      navigate(routesConfig.forbidden.path);
-    }
-  }, [user]);
-
   return (
-    <>
-      <Boxhead>Login page</Boxhead>
+    <PageContainer header={routesConfig.login.label}>
       <Button onClick={handleLogin}>Login</Button>
-    </>
+    </PageContainer>
   );
 };

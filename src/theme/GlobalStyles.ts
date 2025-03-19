@@ -16,4 +16,10 @@ export const GlobalStyles = styled.createGlobalStyle`
     text-decoration: none;
     color: ${theme.colors.text};
   }
+  button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
 `;

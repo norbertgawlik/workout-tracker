@@ -1,11 +1,12 @@
 export enum Roles {
-  AUTH = "authenticated",
-  ANON = "anon",
+  ADMIN = "admin",
+  USER = "user",
+  GUEST = "guest",
 }
 
-export interface User {
+export type User = {
   id: string;
   name: string;
   email: string;
   role: Roles;
-}
+};

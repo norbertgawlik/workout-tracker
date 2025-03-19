@@ -1,30 +1,23 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { Boxhead } from "@ui/Boxhead";
 import { Button } from "@ui/Button";
 import { useAuth } from "@contexts/AuthContext";
+import { PageContainer } from "@components/layout/Page";
 import { routesConfig } from "@routes/routesConfig";
+import { useToast } from "@contexts/ToastContext";
 
 export const DashboardPage = () => {
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
+  const { logout } = useAuth();
+  const { showToast } = useToast();
 
-  const handleLogin = () => {
-    try {
-      logout();
-    } catch (err) {
-      console.log(err);
-    }
+  const handleLogout = () => {
+    logout();
+    showToast({
+      title: "Logged out",
+    });
   };
 
-  useEffect(() => {
-    if (!user) navigate(routesConfig.login.path);
-  }, [user]);
-
   return (
-    <>
-      <Boxhead>Dashboard</Boxhead>
-      <Button onClick={handleLogin}>Logout</Button>
-    </>
+    <PageContainer header={routesConfig.dashboard.label}>
+      <Button onClick={handleLogout}>Logout</Button>
+    </PageContainer>
   );
 };

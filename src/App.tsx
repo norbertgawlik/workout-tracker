@@ -6,17 +6,18 @@ import { router } from "./routes/router";
 import { AuthProvider } from "./contexts/AuthContext";
 
 import "./App.css";
+import { ToastProvider } from "@contexts/ToastContext";
 
 function App() {
   return (
-    <>
-      <AuthProvider>
+    <AuthProvider>
+      <ToastProvider>
         <ThemeProvider theme={theme}>
           <GlobalStyles />
           <RouterProvider router={router} />
         </ThemeProvider>
-      </AuthProvider>
-    </>
+      </ToastProvider>
+    </AuthProvider>
   );
 }
 

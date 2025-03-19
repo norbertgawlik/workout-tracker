@@ -1,5 +1,5 @@
-import { AuthContextType } from "@mytypes/authContext";
-import { Roles, User } from "@mytypes/user";
+import { AuthContextType } from "@mytypes/auth";
+import { User } from "@mytypes/user";
 import { createContext, ReactNode, useContext, useState } from "react";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -12,13 +12,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logout = () => setUser(null);
 
   const isAuthenticated = !!user;
-  const hasPermissions =
-    isAuthenticated && user.role && user.role === Roles.AUTH;
 
   return (
-    <AuthContext.Provider
-      value={{ user, isAuthenticated, hasPermissions, login, logout }}
-    >
+    <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
