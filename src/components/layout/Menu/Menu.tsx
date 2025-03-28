@@ -1,10 +1,5 @@
 import { routesConfig } from "../../../routes/routesConfig";
-import {
-  StyledItem,
-  StyledList,
-  StyledNav,
-  StyledNavLink,
-} from "./Menu.styled";
+import * as S from "./Menu.styled";
 
 const menuItems = [
   { path: routesConfig.home.path, label: routesConfig.home.label },
@@ -13,14 +8,14 @@ const menuItems = [
 
 export const Menu = () => {
   return (
-    <StyledNav>
-      <StyledList>
+    <S.StyledNav>
+      <S.StyledList>
         {menuItems.map((item) => (
-          <StyledItem key={item.path}>
-            <StyledNavLink to={item.path}>{item.label}</StyledNavLink>
-          </StyledItem>
+          <S.StyledItem key={item.path}>
+            <S.StyledNavLink to={item.path}>{item.label}</S.StyledNavLink>
+          </S.StyledItem>
         ))}
-      </StyledList>
-    </StyledNav>
+      </S.StyledList>
+    </S.StyledNav>
   );
 };
