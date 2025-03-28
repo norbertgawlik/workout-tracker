@@ -1,16 +1,17 @@
 import { PageContainer } from "@components/layout/Page";
 import { useAuth } from "@contexts/AuthContext";
 import { routesConfig } from "@routes/routesConfig";
-import { type authPropsType } from "@mytypes/auth";
-import { Form } from "@components/Form";
+import { RegisterForm } from "./Form";
+import { type RegisterPropsType } from "@mytypes/auth";
 
 export const RegisterPage = () => {
   const { register } = useAuth();
-  const handleRegister = (authData: authPropsType) => register(authData);
+  const handleRegister = (registerData: RegisterPropsType) =>
+    register(registerData);
 
   return (
     <PageContainer header={routesConfig.register.label}>
-      <Form handleSubmitForm={handleRegister} buttonLabel="Register" />
+      <RegisterForm handleSubmitForm={handleRegister} />
     </PageContainer>
   );
 };

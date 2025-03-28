@@ -1,8 +1,17 @@
-import { type AuthContextType, type authPropsType } from "@mytypes/auth";
-import { Roles, User } from "@mytypes/user";
 import { createContext, ReactNode, useContext, useState } from "react";
-import { getProfile, signIn, signUp } from "../services/authServices";
+import {
+  fetchUserProfile,
+  loginUser,
+  registerUser,
+} from "../services/authServices";
 import { useToast } from "./ToastContext";
+import { ERROR_FALLBACK } from "../constants/messages";
+import {
+  type LoginPropsType,
+  type RegisterPropsType,
+  type AuthContextType,
+} from "@mytypes/auth";
+import { Roles, type User } from "@mytypes/user";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 AuthContext.displayName = "AuthContext";
@@ -11,47 +20,68 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const { showToast } = useToast();
 
-  const login = async (authData: authPropsType) => {
-    const response = await signIn(authData);
-    const { data, error } = response;
+  const login = async (loginData: LoginPropsType) => {
+    try {
+      const response = await loginUser(loginData);
+      const { data, error } = response;
 
-    if (!error && data.user) {
-      const profile = await getProfile(data.user.id);
+      if (!error && data.user) {
+        const { id, email } = data.user;
+        const profile = await fetchUserProfile(id);
+        const role = profile.data?.role || Roles.GUEST;
 
-      setUser({
-        id: data.user.id,
-        email: data.user.email,
-        role:
-          profile.data && profile.data.role ? profile.data.role : Roles.GUEST,
-      });
+        setUser({
+          id: id,
+          email: email,
+          role: role,
+        });
 
+        showToast({
+          title: "Logged in",
+          options: { type: "success" },
+        });
+      } else {
+        showToast({
+          title: error?.message || ERROR_FALLBACK,
+          options: { type: "error" },
+        });
+      }
+    } catch (error: unknown) {
       showToast({
-        title: "Logged in",
-        options: { type: "success" },
-      });
-    } else {
-      showToast({
-        title: response.error?.message,
+        title: (error instanceof Error && error?.message) || ERROR_FALLBACK,
         options: { type: "error" },
       });
     }
   };
 
-  const register = async (authData: authPropsType) => {
-    const response = await signUp(authData);
-    const { error, data } = response;
+  const register = async (registerData: RegisterPropsType) => {
+    try {
+      const response = await registerUser(registerData);
+      const { error, data } = response;
 
-    if (!error && data.user) {
-      login(authData);
-    } else {
+      if (!error && data.user) {
+        login(registerData);
+      } else {
+        showToast({
+          title: error && error.message ? error.message : ERROR_FALLBACK,
+          options: { type: "error" },
+        });
+      }
+    } catch (error: unknown) {
       showToast({
-        title: response.error?.message,
+        title: (error instanceof Error && error?.message) || ERROR_FALLBACK,
         options: { type: "error" },
       });
     }
   };
 
-  const logout = () => setUser(null);
+  const logout = () => {
+    setUser(null);
+
+    showToast({
+      title: "Logged out",
+    });
+  };
 
   const isAuthenticated = !!user;
 

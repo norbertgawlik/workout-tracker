@@ -26,7 +26,4 @@ export const GlobalStyles = styled.createGlobalStyle`
     outline: none;
     border: 1px solid ${theme.colors.border};
   }
-  label {
-    cursor: pointer;
-  }
 `;
