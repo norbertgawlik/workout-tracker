@@ -3,6 +3,7 @@ export const theme = {
     primary: "#40407a",
     secondary: "#706fd3",
     gray: "#f1f0ee",
+    border: "#e1e1e1",
 
     info: "#34ace0",
     warning: "#ff793f",
@@ -43,6 +44,14 @@ export const theme = {
     lg: "font-weight: 500",
     xl: "font-weight: 600",
     xxl: "font-weight: 700",
+  },
+  radius: {
+    xs: "4px",
+    sm: "8px",
+    md: "16px",
+    lg: "24px",
+    xl: "32px",
+    full: "100%",
   },
   helpers: {
     flexCenter: `

@@ -22,4 +22,11 @@ export const GlobalStyles = styled.createGlobalStyle`
     cursor: pointer;
     display: inline-block;
   }
+  input {
+    outline: none;
+    border: 1px solid ${theme.colors.border};
+  }
+  label {
+    cursor: pointer;
+  }
 `;

@@ -10,14 +10,14 @@ import { ToastProvider } from "@contexts/ToastContext";
 
 function App() {
   return (
-    <AuthProvider>
-      <ToastProvider>
+    <ToastProvider>
+      <AuthProvider>
         <ThemeProvider theme={theme}>
           <GlobalStyles />
           <RouterProvider router={router} />
         </ThemeProvider>
-      </ToastProvider>
-    </AuthProvider>
+      </AuthProvider>
+    </ToastProvider>
   );
 }
 
