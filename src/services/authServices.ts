@@ -1,7 +1,7 @@
-import { signPropsType } from "@mytypes/auth";
+import { LoginPropsType, RegisterPropsType } from "@mytypes/auth";
 import { supabase } from "./supabaseClient";
 
-export const signIn = async ({ email, password }: signPropsType) => {
+export const loginUser = async ({ email, password }: LoginPropsType) => {
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
@@ -9,7 +9,7 @@ export const signIn = async ({ email, password }: signPropsType) => {
   return { data, error };
 };
 
-export const signUp = async ({ email, password }: signPropsType) => {
+export const registerUser = async ({ email, password }: RegisterPropsType) => {
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
@@ -18,7 +18,7 @@ export const signUp = async ({ email, password }: signPropsType) => {
   return { data, error };
 };
 
-export const getProfile = async (userId: string) => {
+export const fetchUserProfile = async (userId: string) => {
   const { data, error } = await supabase
     .from("profiles")
     .select("role")
