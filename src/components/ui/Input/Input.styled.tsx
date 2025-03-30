@@ -13,6 +13,7 @@ export const StyledLabel = styled.label`
   text-transform: uppercase;
   margin: ${theme.spacing.xs} 0;
   display: block;
+  cursor: pointer;
 `;
 
 export const StyledInput = styled.input`
