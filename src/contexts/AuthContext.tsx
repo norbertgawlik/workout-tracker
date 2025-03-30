@@ -43,13 +43,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       } else {
         showToast({
           title: error?.message || ERROR_FALLBACK,
-          options: { type: "error" },
         });
       }
     } catch (error: unknown) {
       showToast({
         title: (error instanceof Error && error?.message) || ERROR_FALLBACK,
-        options: { type: "error" },
       });
     }
   };
@@ -64,13 +62,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       } else {
         showToast({
           title: error && error.message ? error.message : ERROR_FALLBACK,
-          options: { type: "error" },
         });
       }
     } catch (error: unknown) {
       showToast({
         title: (error instanceof Error && error?.message) || ERROR_FALLBACK,
-        options: { type: "error" },
       });
     }
   };
@@ -80,6 +76,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     showToast({
       title: "Logged out",
+      options: { type: "info" },
     });
   };
 
