@@ -4,6 +4,7 @@ import {
   HomePage,
   LoginPage,
   NotFoundPage,
+  RegisterPage,
 } from "../pages";
 
 export const routesConfig = {
@@ -16,6 +17,11 @@ export const routesConfig = {
     path: "*",
     element: <NotFoundPage />,
     label: "404",
+  },
+  register: {
+    path: "/register",
+    element: <RegisterPage />,
+    label: "Register",
   },
   login: {
     path: "/login",

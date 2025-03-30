@@ -1,20 +1,91 @@
-import { AuthContextType } from "@mytypes/auth";
-import { User } from "@mytypes/user";
 import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  fetchUserProfile,
+  loginUser,
+  registerUser,
+} from "../services/authServices";
+import { useToast } from "./ToastContext";
+import { ERROR_FALLBACK } from "../constants/messages";
+import {
+  type LoginPropsType,
+  type RegisterPropsType,
+  type AuthContextType,
+} from "@mytypes/auth";
+import { Roles, type User } from "@mytypes/user";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 AuthContext.displayName = "AuthContext";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
+  const { showToast } = useToast();
 
-  const login = (userData: User) => setUser(userData);
-  const logout = () => setUser(null);
+  const login = async (loginData: LoginPropsType) => {
+    try {
+      const response = await loginUser(loginData);
+      const { data, error } = response;
+
+      if (!error && data.user) {
+        const { id, email } = data.user;
+        const profile = await fetchUserProfile(id);
+        const role = profile.data?.role || Roles.GUEST;
+
+        setUser({
+          id: id,
+          email: email,
+          role: role,
+        });
+
+        showToast({
+          title: "Logged in",
+          options: { type: "success" },
+        });
+      } else {
+        showToast({
+          title: error?.message || ERROR_FALLBACK,
+        });
+      }
+    } catch (error: unknown) {
+      showToast({
+        title: (error instanceof Error && error?.message) || ERROR_FALLBACK,
+      });
+    }
+  };
+
+  const register = async (registerData: RegisterPropsType) => {
+    try {
+      const response = await registerUser(registerData);
+      const { error, data } = response;
+
+      if (!error && data.user) {
+        login(registerData);
+      } else {
+        showToast({
+          title: error && error.message ? error.message : ERROR_FALLBACK,
+        });
+      }
+    } catch (error: unknown) {
+      showToast({
+        title: (error instanceof Error && error?.message) || ERROR_FALLBACK,
+      });
+    }
+  };
+
+  const logout = () => {
+    setUser(null);
+
+    showToast({
+      title: "Logged out",
+      options: { type: "info" },
+    });
+  };
 
   const isAuthenticated = !!user;
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
+    <AuthContext.Provider
+      value={{ user, isAuthenticated, login, logout, register }}
+    >
       {children}
     </AuthContext.Provider>
   );

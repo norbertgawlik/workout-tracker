@@ -18,6 +18,10 @@ const routes = [
         element: routesConfig.notfound.element,
       },
       {
+        path: routesConfig.register.path,
+        element: routesConfig.register.element,
+      },
+      {
         path: routesConfig.login.path,
         element: (
           <ProtectedWrapper redirect={routesConfig.dashboard.path}>

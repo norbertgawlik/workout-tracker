@@ -10,7 +10,7 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
   const showToast = ({ title = "", content = "", options }: ToastProps) => {
     toast(<CustomToast title={title} content={content} />, {
       theme: "colored",
-      type: "info",
+      type: "error",
       ...options,
     });
   };

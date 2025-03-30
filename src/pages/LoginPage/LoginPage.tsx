@@ -1,32 +1,24 @@
 import { PageContainer } from "@components/layout/Page";
 import { useAuth } from "@contexts/AuthContext";
-import { useToast } from "@contexts/ToastContext";
-import { Roles } from "@mytypes/user";
 import { routesConfig } from "@routes/routesConfig";
-import { Button } from "@ui/Button";
-
-const testUserData = {
-  id: "test_id",
-  name: "test_name",
-  email: "test@gmail.com",
-  role: Roles.USER,
-};
+import * as S from "./LoginPage.styled";
+import { LoginForm } from "./Form";
+import { type LoginPropsType } from "@mytypes/auth";
 
 export const LoginPage = () => {
   const { login } = useAuth();
-  const { showToast } = useToast();
-
-  const handleLogin = () => {
-    login(testUserData);
-    showToast({
-      title: "Logged in",
-      options: { type: "success" },
-    });
-  };
+  const handleLogin = (loginData: LoginPropsType) => login(loginData);
 
   return (
     <PageContainer header={routesConfig.login.label}>
-      <Button onClick={handleLogin}>Login</Button>
+      <LoginForm handleSubmitForm={handleLogin} />
+
+      <S.StyledRegister>
+        Dont have an account?
+        <S.StyledRegisterLink to={routesConfig.register.path}>
+          Register
+        </S.StyledRegisterLink>
+      </S.StyledRegister>
     </PageContainer>
   );
 };
