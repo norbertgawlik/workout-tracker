@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import {
   fetchUserProfile,
   loginUser,
@@ -12,6 +18,7 @@ import {
   type AuthContextType,
 } from "@mytypes/auth";
 import { Roles, type User } from "@mytypes/user";
+import { supabase } from "../services/supabaseClient";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 AuthContext.displayName = "AuthContext";
@@ -19,6 +26,36 @@ AuthContext.displayName = "AuthContext";
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const { showToast } = useToast();
+
+  const initUser = async () => {
+    const { data, error } = await supabase.auth.getSession();
+
+    if (!error && data.session && data.session.user) {
+      const { id, email } = data.session.user;
+      try {
+        const profile = await fetchUserProfile(id);
+        const role = profile.data?.role || Roles.GUEST;
+
+        setUser({
+          id,
+          email,
+          role,
+        });
+      } catch (e) {
+        showToast({
+          title: (e instanceof Error && e?.message) || ERROR_FALLBACK,
+        });
+      }
+    } else {
+      showToast({
+        title: error?.message || ERROR_FALLBACK,
+      });
+    }
+  };
+
+  useEffect(() => {
+    initUser();
+  }, []);
 
   const login = async (loginData: LoginPropsType) => {
     try {
@@ -31,9 +68,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         const role = profile.data?.role || Roles.GUEST;
 
         setUser({
-          id: id,
-          email: email,
-          role: role,
+          id,
+          email,
+          role,
         });
 
         showToast({
