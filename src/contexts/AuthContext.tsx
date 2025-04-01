@@ -108,13 +108,24 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const logout = () => {
-    setUser(null);
-
-    showToast({
-      title: "Logged out",
-      options: { type: "info" },
-    });
+  const logout = async () => {
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        throw error;
+      }
+      setUser(null);
+      showToast({
+        title: "Logged out",
+        options: { type: "info" },
+      });
+    } catch (err: unknown) {
+      const errorMsg = err instanceof Error ? err.message : ERROR_FALLBACK;
+      showToast({
+        title: errorMsg,
+        options: { type: "error" },
+      });
+    }
   };
 
   const isAuthenticated = !!user;
