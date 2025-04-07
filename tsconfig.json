@@ -12,7 +12,8 @@
       "@contexts/*": ["contexts/*"],
       "@mytypes/*": ["types/*"],
       "@components/*": ["components/*"],
-      "@theme": ["theme"]
+      "@theme": ["theme"],
+      "@assets": ["assets"]
     }
   }
 }

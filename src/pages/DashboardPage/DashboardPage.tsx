@@ -1,7 +1,6 @@
 import { Button } from "@ui/Button";
 import { useAuth } from "@contexts/AuthContext";
-import { PageContainer } from "@components/layout/Page";
-import { routesConfig } from "@routes/routesConfig";
+import { Container } from "@components/layout/Container";
 
 export const DashboardPage = () => {
   const { logout } = useAuth();
@@ -9,8 +8,8 @@ export const DashboardPage = () => {
   const handleLogout = () => logout();
 
   return (
-    <PageContainer header={routesConfig.dashboard.label}>
+    <Container>
       <Button onClick={handleLogout}>Logout</Button>
-    </PageContainer>
+    </Container>
   );
 };

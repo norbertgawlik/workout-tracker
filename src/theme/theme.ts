@@ -1,20 +1,23 @@
 export const theme = {
   colors: {
-    primary: "#40407a",
-    secondary: "#706fd3",
-    gray: "#f1f0ee",
+    primary: "#B3A0FF",
+    lightprimary: "#B3A0FF",
+    secondary: "#E2F163",
+
+    dark: "#232323",
+    gray: "#373737",
+    background: "#1a1a1a",
+    white: "#FFFFFF",
     border: "#e1e1e1",
 
     info: "#34ace0",
     warning: "#ff793f",
     error: "#ff5252",
     success: "#33d9b2",
-    background: "#fff",
-    text: "#333333",
-    light: "#FFFFFF",
   },
   fonts: {
-    primary: '"Robot", sans-serif',
+    primary: '"League Spartan", sans-serif',
+    secondary: '"Poppins", sans-serif',
   },
   spacing: {
     xs: "4px",
@@ -22,6 +25,7 @@ export const theme = {
     md: "16px",
     lg: "24px",
     xl: "32px",
+    xxl: "48px",
   },
   fontSize: {
     xs: "font-size: 12px",
@@ -61,7 +65,8 @@ export const theme = {
         `,
     transition: "transition: all 0.3s ease",
   },
-  maxSize: "max-width: 1280px",
+  maxWidth: "max-width: 450px",
+  maxHeight: "max-height: 950px",
 } as const;
 
 export const MainTheme = typeof theme;

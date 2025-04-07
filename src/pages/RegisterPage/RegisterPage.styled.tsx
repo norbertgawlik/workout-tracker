@@ -9,6 +9,17 @@ export const StyledBoxhead = styled(Boxhead)`
   text-align: center;
 `;
 
+export const StyledParagraph = styled(Paragraph)`
+  text-align: center;
+  margin: ${theme.spacing.xl} 0;
+`;
+
+export const StyledRegisterLink = styled(Link)`
+  color: ${theme.colors.secondary};
+  text-decoration: underline;
+  margin: 0 ${theme.spacing.xs};
+`;
+
 export const StyledButton = styled(StyledSecondaryButton)`
   margin-top: ${theme.spacing.md};
   margin: 0 auto;
@@ -18,16 +29,4 @@ export const StyledButton = styled(StyledSecondaryButton)`
 export const StyledButtonWrap = styled.div`
   ${theme.helpers.flexCenter};
   margin: ${theme.spacing.sm};
-`;
-
-export const StyledParagraph = styled(Paragraph)`
-  text-align: center;
-  margin: ${theme.spacing.xl} auto;
-  max-width: 350px;
-`;
-
-export const StyledRegisterLink = styled(Link)`
-  color: ${theme.colors.secondary};
-  text-decoration: underline;
-  margin: 0 ${theme.spacing.xs};
 `;

@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const initUser = async () => {
     const { data, error } = await supabase.auth.getSession();
-
+    if ((!data || !data.session) && !error) return;
     if (!error && data.session && data.session.user) {
       const { id, email } = data.session.user;
       try {

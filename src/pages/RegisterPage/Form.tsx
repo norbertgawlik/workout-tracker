@@ -1,9 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "@ui/Button";
 import { Input } from "@ui/Input";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { schema, type SchemaFieldsType } from "./schema";
 import { type RegisterPropsType } from "@mytypes/auth";
+import * as S from "./RegisterPage.styled";
 
 type RegisterFormProps = {
   handleSubmitForm: (registerData: RegisterPropsType) => void;
@@ -23,15 +23,17 @@ export const RegisterForm = ({ handleSubmitForm }: RegisterFormProps) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input label="email" {...register("email")} errors={errors.email} />
+      <Input label="Email" {...register("email")} errors={errors.email} />
       <Input
-        label="password"
+        label="Password"
         {...register("password")}
         type="password"
         errors={errors.password}
       />
 
-      <Button>Register</Button>
+      <S.StyledButtonWrap>
+        <S.StyledButton>Register</S.StyledButton>
+      </S.StyledButtonWrap>
     </form>
   );
 };

@@ -1,11 +1,10 @@
-import { PageContainer } from "@components/layout/Page";
-import { routesConfig } from "@routes/routesConfig";
+import { Container } from "@components/layout/Container";
 import { Paragraph } from "@ui/Paragraph";
 
 export const ForbiddenPage = () => {
   return (
-    <PageContainer header={routesConfig.forbidden.label}>
+    <Container>
       <Paragraph>No permissions</Paragraph>
-    </PageContainer>
+    </Container>
   );
 };

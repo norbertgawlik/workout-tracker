@@ -11,6 +11,7 @@ export default defineConfig({
       "@mytypes": "/src/types",
       "@components": "/src/components",
       "@theme": "/src/theme/theme.ts",
+      "@assets": "/src/assets",
     },
   },
 });
