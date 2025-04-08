@@ -1,9 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "@ui/Button";
 import { Input } from "@ui/Input";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { schema, type SchemaFieldsType } from "./schema";
 import { type LoginPropsType } from "@mytypes/auth";
+import { StyledButton } from "./LoginPage.styled";
+import * as S from "./LoginPage.styled";
 
 type LoginFormProps = {
   handleSubmitForm: (loginData: LoginPropsType) => void;
@@ -23,15 +24,17 @@ export const LoginForm = ({ handleSubmitForm }: LoginFormProps) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Input label="email" {...register("email")} errors={errors.email} />
+      <Input label="Email" {...register("email")} errors={errors.email} />
       <Input
-        label="password"
+        label="Password"
         {...register("password")}
         type="password"
         errors={errors.password}
       />
 
-      <Button>Login</Button>
+      <S.StyledButtonWrap>
+        <StyledButton>Login</StyledButton>
+      </S.StyledButtonWrap>
     </form>
   );
 };

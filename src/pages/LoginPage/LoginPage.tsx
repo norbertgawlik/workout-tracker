@@ -1,24 +1,30 @@
-import { PageContainer } from "@components/layout/Page";
 import { useAuth } from "@contexts/AuthContext";
 import { routesConfig } from "@routes/routesConfig";
-import * as S from "./LoginPage.styled";
 import { LoginForm } from "./Form";
 import { type LoginPropsType } from "@mytypes/auth";
+import { Container } from "@components/layout/Container";
+import { BackStep } from "@components/layout/BackStep";
+import * as S from "./LoginPage.styled";
 
 export const LoginPage = () => {
   const { login } = useAuth();
   const handleLogin = (loginData: LoginPropsType) => login(loginData);
 
   return (
-    <PageContainer header={routesConfig.login.label}>
+    <Container>
+      <BackStep to={routesConfig.home.path} label={routesConfig.login.label} />
+      <S.StyledBoxhead>Welcome</S.StyledBoxhead>
+      <S.StyledParagraph>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </S.StyledParagraph>
       <LoginForm handleSubmitForm={handleLogin} />
-
-      <S.StyledRegister>
-        Dont have an account?
+      <S.StyledParagraph>
+        {"Don't have an account?"}
         <S.StyledRegisterLink to={routesConfig.register.path}>
           Register
         </S.StyledRegisterLink>
-      </S.StyledRegister>
-    </PageContainer>
+      </S.StyledParagraph>
+    </Container>
   );
 };

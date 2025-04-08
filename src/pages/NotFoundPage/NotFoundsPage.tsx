@@ -1,11 +1,10 @@
-import { PageContainer } from "@components/layout/Page";
-import { routesConfig } from "@routes/routesConfig";
+import { Container } from "@components/layout/Container";
 import { Paragraph } from "@ui/Paragraph";
 
 export const NotFoundPage = () => {
   return (
-    <PageContainer header={routesConfig.notfound.label}>
+    <Container>
       <Paragraph>Page not found</Paragraph>
-    </PageContainer>
+    </Container>
   );
 };

@@ -5,25 +5,28 @@ export const StyledWrap = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 400px;
+  margin: 0 auto;
 `;
 
 export const StyledLabel = styled.label`
   ${theme.fontSize.sm};
-  ${theme.fontWeight.xl};
-  text-transform: uppercase;
-  margin: ${theme.spacing.xs} 0;
+  ${theme.fontWeight.md};
+  margin: ${theme.spacing.sm} 0;
   display: block;
   cursor: pointer;
 `;
 
 export const StyledInput = styled.input`
-  padding: ${theme.spacing.md};
+  padding: ${theme.spacing.sm};
   border-radius: ${theme.radius.xs};
-  ${theme.fontSize.md};
+  ${theme.fontSize.sm};
+  height: 45px;
+  box-sizing: border-box;
 `;
 
 export const StyledError = styled.p`
   color: ${theme.colors.error};
   ${theme.fontWeight.xl};
-  ${theme.fontSize.xs}
+  ${theme.fontSize.xs};
+  margin: ${theme.spacing.sm} 0 ${theme.spacing.xs} 0;
 `;

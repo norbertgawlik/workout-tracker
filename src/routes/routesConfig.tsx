@@ -5,6 +5,9 @@ import {
   LoginPage,
   NotFoundPage,
   RegisterPage,
+  PanelPage,
+  ExercisesPage,
+  StatsPage,
 } from "../pages";
 
 export const routesConfig = {
@@ -37,5 +40,20 @@ export const routesConfig = {
     path: "/forbidden",
     element: <ForbiddenPage />,
     label: "403",
+  },
+  panel: {
+    path: "/panel",
+    element: <PanelPage />,
+    label: "Panel",
+  },
+  exercises: {
+    path: "/exercises",
+    element: <ExercisesPage />,
+    label: "Exercises",
+  },
+  stats: {
+    path: "/stats",
+    element: <StatsPage />,
+    label: "Stats",
   },
 };

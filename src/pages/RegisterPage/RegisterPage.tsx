@@ -1,8 +1,10 @@
-import { PageContainer } from "@components/layout/Page";
 import { useAuth } from "@contexts/AuthContext";
-import { routesConfig } from "@routes/routesConfig";
 import { RegisterForm } from "./Form";
 import { type RegisterPropsType } from "@mytypes/auth";
+import { Container } from "@components/layout/Container";
+import { BackStep } from "@components/layout/BackStep";
+import { routesConfig } from "@routes/routesConfig";
+import * as S from "./RegisterPage.styled";
 
 export const RegisterPage = () => {
   const { register } = useAuth();
@@ -10,8 +12,22 @@ export const RegisterPage = () => {
     register(registerData);
 
   return (
-    <PageContainer header={routesConfig.register.label}>
+    <Container>
+      <BackStep
+        to={routesConfig.home.path}
+        label={routesConfig.register.label}
+      />
+      <S.StyledBoxhead>{"Let's start"}</S.StyledBoxhead>
       <RegisterForm handleSubmitForm={handleRegister} />
-    </PageContainer>
+      <S.StyledParagraph>
+        By continuing, you agree to <br /> Terms of Use and Privacy Policy.
+      </S.StyledParagraph>
+      <S.StyledParagraph>
+        Already have an account?
+        <S.StyledRegisterLink to={routesConfig.login.path}>
+          Log in
+        </S.StyledRegisterLink>
+      </S.StyledParagraph>
+    </Container>
   );
 };

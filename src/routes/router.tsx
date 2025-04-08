@@ -1,13 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import { routesConfig } from "./routesConfig";
 import { ProtectedWrapper } from "./ProtectedRoute";
-import { Layout } from "../components/layout/Layout";
 import { Roles } from "@mytypes/user";
+import { BasicLayout } from "@components/layout/BasicLayout";
+import { DashboardLayout } from "@components/layout/DashboardLayout";
 
 const routes = [
   {
     path: "/",
-    element: <Layout />,
+    element: <BasicLayout />,
     children: [
       {
         path: routesConfig.home.path,
@@ -29,6 +30,12 @@ const routes = [
           </ProtectedWrapper>
         ),
       },
+    ],
+  },
+  {
+    path: "/",
+    element: <DashboardLayout />,
+    children: [
       {
         path: routesConfig.dashboard.path,
         element: (
@@ -40,6 +47,18 @@ const routes = [
       {
         path: routesConfig.forbidden.path,
         element: routesConfig.forbidden.element,
+      },
+      {
+        path: routesConfig.panel.path,
+        element: routesConfig.panel.element,
+      },
+      {
+        path: routesConfig.exercises.path,
+        element: routesConfig.exercises.element,
+      },
+      {
+        path: routesConfig.stats.path,
+        element: routesConfig.stats.element,
       },
     ],
   },
