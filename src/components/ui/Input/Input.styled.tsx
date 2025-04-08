@@ -5,6 +5,7 @@ export const StyledWrap = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 400px;
+  margin: 0 auto;
 `;
 
 export const StyledLabel = styled.label`

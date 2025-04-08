@@ -14,6 +14,7 @@ export const StyledBackground = styled.img`
   height: 100%;
   opacity: 0.15;
   pointer-events: none;
+  object-fit: cover;
 `;
 
 export const StyledLinksWrap = styled.div`

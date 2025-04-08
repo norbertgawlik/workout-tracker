@@ -4,3 +4,6 @@ export { NotFoundPage } from "./NotFoundPage";
 export { ForbiddenPage } from "./ForbiddenPage";
 export { HomePage } from "./HomePage";
 export { RegisterPage } from "./RegisterPage";
+export { PanelPage } from "./PanelPage";
+export { StatsPage } from "./StatsPage";
+export { ExercisesPage } from "./ExercisesPage";

@@ -1,6 +1,6 @@
 export const theme = {
   colors: {
-    primary: "#B3A0FF",
+    primary: "#896CFE",
     lightprimary: "#B3A0FF",
     secondary: "#E2F163",
 
@@ -65,8 +65,7 @@ export const theme = {
         `,
     transition: "transition: all 0.3s ease",
   },
-  maxWidth: "max-width: 450px",
-  maxHeight: "max-height: 950px",
+  maxWidth: "max-width: 1280px",
 } as const;
 
 export const MainTheme = typeof theme;

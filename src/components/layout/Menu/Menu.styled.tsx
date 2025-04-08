@@ -1,23 +1,31 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { theme } from "@theme";
+
 export const StyledNav = styled.nav`
-  padding: ${theme.spacing.lg} 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: ${theme.colors.lightprimary};
 `;
 
 export const StyledList = styled.ul`
   list-style: none;
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;
+  padding: ${theme.spacing.sm} ${theme.spacing.lg};
   display: flex;
+  justify-content: center;
+  max-width: 400px;
 `;
 
 export const StyledItem = styled.li`
   display: inline-block;
+  flex-grow: 1;
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  display: block;
+  ${theme.helpers.flexCenter}
   padding: ${theme.spacing.sm} ${theme.spacing.md};
   ${theme.fontWeight.md};
 

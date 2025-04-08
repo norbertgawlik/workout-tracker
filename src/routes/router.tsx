@@ -48,6 +48,18 @@ const routes = [
         path: routesConfig.forbidden.path,
         element: routesConfig.forbidden.element,
       },
+      {
+        path: routesConfig.panel.path,
+        element: routesConfig.panel.element,
+      },
+      {
+        path: routesConfig.exercises.path,
+        element: routesConfig.exercises.element,
+      },
+      {
+        path: routesConfig.stats.path,
+        element: routesConfig.stats.element,
+      },
     ],
   },
 ];
