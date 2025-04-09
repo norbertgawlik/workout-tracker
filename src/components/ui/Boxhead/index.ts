@@ -1,1 +1,0 @@
-export { Boxhead } from "./Boxhead";

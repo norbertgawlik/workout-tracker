@@ -13,7 +13,9 @@ export const LoginPage = () => {
   return (
     <Container>
       <BackStep to={routesConfig.home.path} label={routesConfig.login.label} />
-      <S.StyledBoxhead>Welcome</S.StyledBoxhead>
+      <S.StyledHeading as="h1" variant="large">
+        Welcome
+      </S.StyledHeading>
       <S.StyledParagraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.

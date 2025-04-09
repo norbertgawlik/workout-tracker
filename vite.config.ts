@@ -5,13 +5,14 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@ui": "/src/components/ui",
       "@routes": "/src/routes",
       "@contexts": "/src/contexts",
       "@mytypes": "/src/types",
-      "@components": "/src/components",
-      "@theme": "/src/theme/theme.ts",
+      "@theme": "/src/theme",
       "@assets": "/src/assets",
+      "@ui": "/src/components/ui",
+      "@icons": "/src/components/icons/",
+      "@components": "/src/components",
     },
   },
 });

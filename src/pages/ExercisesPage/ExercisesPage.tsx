@@ -1,10 +1,12 @@
 import { Container } from "@components/layout/Container";
-import { Boxhead } from "@ui/Boxhead";
+import { Heading } from "@ui/Heading";
 
 export const ExercisesPage = () => {
   return (
     <Container>
-      <Boxhead>Exercises</Boxhead>
+      <Heading as="h1" variant="large">
+        Exercises
+      </Heading>
     </Container>
   );
 };

@@ -20,7 +20,7 @@ export const HomePage = () => {
           {routesConfig.register.label}
         </StyledSecondaryNavlink>
       </S.StyledLinksWrap>
-      <S.StyledBackground src={bg} />
+      <S.StyledBackground src={bg} alt="" />
     </S.StyledHomePage>
   );
 };

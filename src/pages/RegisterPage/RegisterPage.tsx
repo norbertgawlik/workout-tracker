@@ -17,7 +17,10 @@ export const RegisterPage = () => {
         to={routesConfig.home.path}
         label={routesConfig.register.label}
       />
-      <S.StyledBoxhead>{"Let's start"}</S.StyledBoxhead>
+
+      <S.StyledHeading as="h1" variant="large">
+        {"Let's start"}
+      </S.StyledHeading>
       <RegisterForm handleSubmitForm={handleRegister} />
       <S.StyledParagraph>
         By continuing, you agree to <br /> Terms of Use and Privacy Policy.

@@ -1,10 +1,12 @@
 import { Container } from "@components/layout/Container";
-import { Boxhead } from "@ui/Boxhead";
+import { Heading } from "@ui/Heading";
 
 export const DashboardPage = () => {
   return (
     <Container>
-      <Boxhead>Dashboard</Boxhead>
+      <Heading as="h1" variant="large">
+        Dashboard
+      </Heading>
     </Container>
   );
 };

@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { theme } from "@theme";
+import { theme } from "@theme/theme";
 
 export const StyledNav = styled.nav`
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: ${theme.colors.lightprimary};
+  background: ${theme.colors.primary300};
 `;
 
 export const StyledList = styled.ul`

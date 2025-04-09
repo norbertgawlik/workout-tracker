@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import { buttonPrimmary, buttonSecondary } from "../../../theme/GlobalStyles";
 import { NavLink } from "react-router-dom";
-import { theme } from "@theme";
+import { theme } from "@theme/theme";
+import { buttonPrimmary, buttonSecondary } from "@theme/GlobalStyles";
 
-export const StyledPrimmaryButton = styled("button")`
+export const StyledPrimmaryButton = styled.button`
   ${buttonPrimmary}
 `;
 
-export const StyledSecondaryButton = styled("button")`
+export const StyledSecondaryButton = styled.button`
   ${buttonSecondary}
 `;
 

@@ -1,10 +1,12 @@
 import { Container } from "@components/layout/Container";
-import { Boxhead } from "@ui/Boxhead";
+import { Heading } from "@ui/Heading";
 
 export const StatsPage = () => {
   return (
     <Container>
-      <Boxhead>Statistics</Boxhead>
+      <Heading as="h1" variant="large">
+        Statistics
+      </Heading>
     </Container>
   );
 };
