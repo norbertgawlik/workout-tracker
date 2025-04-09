@@ -5,15 +5,17 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
+    "jsx": "react-jsx",
     "baseUrl": "./src",
     "paths": {
-      "@ui/*": ["components/ui/*"],
       "@routes/*": ["routes/*"],
       "@contexts/*": ["contexts/*"],
       "@mytypes/*": ["types/*"],
-      "@components/*": ["components/*"],
-      "@theme": ["theme"],
-      "@assets": ["assets"]
+      "@theme/*": ["theme/*"],
+      "@assets/*": ["assets/*"],
+      "@ui/*": ["components/ui/*"],
+      "@icons/*": ["components/icons/*"],
+      "@components/*": ["components/*"]
     }
   }
 }
