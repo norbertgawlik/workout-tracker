@@ -1,11 +1,11 @@
-import { theme } from "@theme";
-import { Boxhead } from "@ui/Boxhead";
+import { theme } from "@theme/theme";
+import { Heading } from "@ui/Heading";
 import { StyledSecondaryButton } from "@ui/Button/Button.styled";
 import { Paragraph } from "@ui/Paragraph";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const StyledBoxhead = styled(Boxhead)`
+export const StyledHeading = styled(Heading)`
   text-align: center;
 `;
 

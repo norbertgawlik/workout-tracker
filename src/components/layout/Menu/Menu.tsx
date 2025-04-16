@@ -1,26 +1,42 @@
-import { routesConfig } from "../../../routes/routesConfig";
+import { routesConfig } from "@routes/routesConfig";
 import * as S from "./Menu.styled";
-import panelIcon from "@assets/svg/panel.svg";
-import exercisesIcon from "@assets/svg/exercises.svg";
-import statsIcon from "@assets/svg/stats.svg";
-import dashboardIcon from "@assets/svg/home.svg";
+import { HomeIcon } from "@icons/HomeIcon";
+import { ExercisesIcon } from "@icons/ExercisesIcon";
+import { StatsIcon } from "@icons/StatsIcon";
+import { PanelIcon } from "@icons/PanelIcon";
+
+const svgProperties = {
+  width: "25",
+  height: "25",
+  color: "white",
+};
 
 const menuItems = [
-  { path: routesConfig.dashboard.path, icon: dashboardIcon, iconSize: 25 },
-  { path: routesConfig.exercises.path, icon: exercisesIcon, iconSize: 27 },
-  { path: routesConfig.stats.path, icon: statsIcon, iconSize: 32 },
-  { path: routesConfig.panel.path, icon: panelIcon, iconSize: 22 },
+  {
+    path: routesConfig.dashboard.path,
+    icon: <HomeIcon {...svgProperties} />,
+  },
+  {
+    path: routesConfig.exercises.path,
+    icon: <ExercisesIcon {...svgProperties} />,
+  },
+  {
+    path: routesConfig.stats.path,
+    icon: <StatsIcon {...svgProperties} />,
+  },
+  {
+    path: routesConfig.panel.path,
+    icon: <PanelIcon {...svgProperties} />,
+  },
 ];
 
 export const Menu = () => {
   return (
     <S.StyledNav>
       <S.StyledList>
-        {menuItems.map((item) => (
-          <S.StyledItem key={item.path}>
-            <S.StyledNavLink to={item.path}>
-              <img src={item.icon} width={item.iconSize} />
-            </S.StyledNavLink>
+        {menuItems.map(({ path, icon }) => (
+          <S.StyledItem key={path}>
+            <S.StyledNavLink to={path}>{icon}</S.StyledNavLink>
           </S.StyledItem>
         ))}
       </S.StyledList>

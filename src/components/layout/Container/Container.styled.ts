@@ -1,4 +1,4 @@
-import { theme } from "@theme";
+import { theme } from "@theme/theme";
 import styled from "styled-components";
 export const StyledContainer = styled.div`
   margin: 0 auto;

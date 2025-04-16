@@ -1,12 +1,10 @@
 import { ThemeProvider } from "styled-components";
-import { theme } from "./theme/theme";
-import { GlobalStyles } from "./theme/GlobalStyles";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes/router";
-import { AuthProvider } from "./contexts/AuthContext";
-
-import "./App.css";
+import { AuthProvider } from "@contexts/AuthContext";
 import { ToastProvider } from "@contexts/ToastContext";
+import { theme } from "@theme/theme";
+import { GlobalStyles } from "@theme/GlobalStyles";
 
 function App() {
   return (

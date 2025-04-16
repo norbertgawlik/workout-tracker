@@ -8,7 +8,7 @@ type ProtectedRouteProps = {
   isAuthenticated: boolean;
   requiredLogin: boolean;
   requiredRole: string | null;
-  role: Roles | null;
+  role?: Roles | null;
   children: ReactNode;
   redirect?: string;
 };
