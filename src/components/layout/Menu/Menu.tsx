@@ -5,22 +5,28 @@ import { ExercisesIcon } from "@icons/ExercisesIcon";
 import { StatsIcon } from "@icons/StatsIcon";
 import { PanelIcon } from "@icons/PanelIcon";
 
+const svgProperties = {
+  width: "25",
+  height: "25",
+  color: "white",
+};
+
 const menuItems = [
   {
     path: routesConfig.dashboard.path,
-    icon: <HomeIcon width="25" height="25" color="white" />,
+    icon: <HomeIcon {...svgProperties} />,
   },
   {
     path: routesConfig.exercises.path,
-    icon: <ExercisesIcon width="25" height="25" color="white" />,
+    icon: <ExercisesIcon {...svgProperties} />,
   },
   {
     path: routesConfig.stats.path,
-    icon: <StatsIcon width="25" height="25" color="white" />,
+    icon: <StatsIcon {...svgProperties} />,
   },
   {
     path: routesConfig.panel.path,
-    icon: <PanelIcon width="25" height="25" color="white" />,
+    icon: <PanelIcon {...svgProperties} />,
   },
 ];
 
