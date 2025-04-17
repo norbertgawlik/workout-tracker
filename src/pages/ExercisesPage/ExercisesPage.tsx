@@ -6,7 +6,7 @@ export const ExercisesPage = () => {
   return (
     <Container>
       <Heading as="h1" variant="large">
-        Exercises
+        Exercises -
       </Heading>
       <Exercises />
     </Container>
