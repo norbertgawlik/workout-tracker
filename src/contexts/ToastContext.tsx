@@ -1,4 +1,4 @@
-import { ToastContextType, ToastProps } from "@mytypes/toast";
+import { ToastContextType, ToastType } from "@mytypes/toast";
 import { CustomToast } from "@ui/Toast";
 import { createContext, ReactNode, useContext } from "react";
 import { toast, ToastContainer } from "react-toastify";
@@ -7,7 +7,7 @@ const ToastContext = createContext<ToastContextType | undefined>(undefined);
 ToastContext.displayName = "ToastContext";
 
 export const ToastProvider = ({ children }: { children: ReactNode }) => {
-  const showToast = ({ title = "", content = "", options }: ToastProps) => {
+  const showToast = ({ title = "", content = "", options }: ToastType) => {
     toast(<CustomToast title={title} content={content} />, {
       theme: "colored",
       type: "error",

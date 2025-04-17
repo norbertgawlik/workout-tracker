@@ -15,7 +15,9 @@
       "@assets/*": ["assets/*"],
       "@ui/*": ["components/ui/*"],
       "@icons/*": ["components/icons/*"],
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
+      "@constants/*": ["constants/*"]
     }
   }
 }

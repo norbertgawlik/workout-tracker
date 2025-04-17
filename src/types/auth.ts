@@ -1,4 +1,4 @@
-import { User } from "./user";
+import { UserType } from "./user";
 
 export interface LoginPropsType {
   email: string;
@@ -11,7 +11,7 @@ export interface RegisterPropsType {
 }
 
 export interface AuthContextType {
-  user: User | null;
+  user: UserType | null;
   isAuthenticated: boolean;
   register: (data: RegisterPropsType) => void;
   login: (data: LoginPropsType) => void;

@@ -18,12 +18,18 @@ export const registerUser = async ({ email, password }: RegisterPropsType) => {
   return { data, error };
 };
 
-export const fetchUserProfile = async (userId: string) => {
+export const getUserProfile = async (userId: string) => {
   const { data, error } = await supabase
     .from("profiles")
     .select("role")
     .eq("id", userId)
     .maybeSingle();
+
+  return { data, error };
+};
+
+export const getUserSession = async () => {
+  const { data, error } = await supabase.auth.getSession();
 
   return { data, error };
 };

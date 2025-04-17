@@ -6,7 +6,8 @@ import {
   useState,
 } from "react";
 import {
-  fetchUserProfile,
+  getUserProfile,
+  getUserSession,
   loginUser,
   registerUser,
 } from "../services/authServices";
@@ -17,23 +18,25 @@ import {
   type RegisterPropsType,
   type AuthContextType,
 } from "@mytypes/auth";
-import { Roles, type User } from "@mytypes/user";
+import { Roles, UserType } from "@mytypes/user";
 import { supabase } from "../services/supabaseClient";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 AuthContext.displayName = "AuthContext";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<UserType | null>(null);
   const { showToast } = useToast();
 
   const initUser = async () => {
-    const { data, error } = await supabase.auth.getSession();
+    const response = await getUserSession();
+    const { data, error } = response;
+
     if ((!data || !data.session) && !error) return;
     if (!error && data.session && data.session.user) {
       const { id, email } = data.session.user;
       try {
-        const profile = await fetchUserProfile(id);
+        const profile = await getUserProfile(id);
         const role = profile.data?.role || Roles.GUEST;
 
         setUser({
@@ -64,7 +67,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
       if (!error && data.user) {
         const { id, email } = data.user;
-        const profile = await fetchUserProfile(id);
+        const profile = await getUserProfile(id);
         const role = profile.data?.role || Roles.GUEST;
 
         setUser({

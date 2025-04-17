@@ -13,6 +13,8 @@ export default defineConfig({
       "@ui": "/src/components/ui",
       "@icons": "/src/components/icons/",
       "@components": "/src/components",
+      "@hooks": "/src/hooks",
+      "@constants": "/src/constants",
     },
   },
 });
