@@ -13,9 +13,15 @@ type Props = {
   variant?: HeadingVariant;
 };
 
-export const Heading = ({ children, as, variant, className }: Props) => {
+export const Heading = ({
+  children,
+  as,
+  variant,
+  className,
+  ...props
+}: Props) => {
   return (
-    <StyledHeading as={as} variant={variant} className={className}>
+    <StyledHeading as={as} variant={variant} className={className} {...props}>
       {children}
     </StyledHeading>
   );

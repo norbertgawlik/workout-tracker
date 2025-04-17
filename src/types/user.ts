@@ -4,7 +4,7 @@ export enum Roles {
   GUEST = "guest",
 }
 
-export type User = {
+export type UserType = {
   id?: string;
   email?: string;
   role?: Roles;
